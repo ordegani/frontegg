@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-
 import { FronteggProvider } from '@frontegg/react';
 
 const contextOptions = {
@@ -11,8 +10,8 @@ const contextOptions = {
 };
 
 ReactDOM.render(
-    <FronteggProvider contextOptions={contextOptions} hostedLoginBox={true}>
-        <App />
-    </FronteggProvider>,
-    document.getElementById('root')
+  <FronteggProvider contextOptions={contextOptions} hostedLoginBox={true}>
+    <App />
+  </FronteggProvider>,
+  document.getElementById('root')
 );
