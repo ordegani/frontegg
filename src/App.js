@@ -1,6 +1,6 @@
 import './App.css';
 import { ContextHolder } from '@frontegg/rest-api';
-import { useAuth, useLoginWithRedirect,  useAuthActions } from "@frontegg/react";
+import { useAuth, useLoginWithRedirect, useAuthActions } from "@frontegg/react";
 import { AdminPortal } from '@frontegg/react'
 
 function App() {
@@ -19,9 +19,9 @@ function App() {
     alert(user
       .tenantIds);
   }
-  const handleSwitchTenant = () => { 
+  const handleSwitchTenant = () => {
     switchTenant({ tenantId: 'new-tenant-id' });
-};
+  };
   return (
     <div className="App">
       { isAuthenticated ? (
@@ -34,7 +34,7 @@ function App() {
           </div>
           <div>
             <label for="user_tenants_dropdown">user type: </label>
-           
+
             <select name="user_tenants_dropdown">{user.tenants.map((item) => {
               return (
                 <option>{item.roles}
@@ -46,12 +46,12 @@ function App() {
           <div> <button onClick={handleSwitchTenant}>Select</button></div>
           <div>
             <button onClick={() => showTenant()}>
-            What is the tenant I'm on right now?
+              What is the tenant I'm on right now?
             </button>
           </div>
-                    <div>
-                    <button onClick={() => alert(user.accessToken)}>What is my access token?</button>
-                  </div>
+          <div>
+            <button onClick={() => alert(user.accessToken)}>What is my access token?</button>
+          </div>
           <div>
             <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to logout</button>
           </div>
@@ -60,8 +60,7 @@ function App() {
       ) : (
           <div>
             <button onClick={() => loginWithRedirect()}>go to login
-            </button>  
-            <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to logout</button>
+            </button>
           </div>
         )}
     </div>
