@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 app.use(express.json())
-
 const sdk = require('api')('@frontegg/v1.0.3#5alnixil6dhd2zr');
 
 sdk.auth('26486244-4f1e-4198-a770-5a8129316feb');

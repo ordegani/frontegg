@@ -1,14 +1,16 @@
 import './App.css';
 import { ContextHolder } from '@frontegg/rest-api';
-import { useAuth, useLoginWithRedirect } from "@frontegg/react";
+import { useAuth, useLoginWithRedirect,  useAuthActions } from "@frontegg/react";
 import { AdminPortal } from '@frontegg/react'
 
 function App() {
   const { user, isAuthenticated } = useAuth();
+  const { switchTenant } = useAuthActions();
   const loginWithRedirect = useLoginWithRedirect();
   const handleClick = () => {
     AdminPortal.show();
   };
+
   const logout = () => {
     const baseUrl = ContextHolder.getContext().baseUrl;
     window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location}`;
@@ -17,7 +19,9 @@ function App() {
     alert(user
       .tenantIds);
   }
-  console.log(user);
+  const handleSwitchTenant = () => { 
+    switchTenant({ tenantId: 'new-tenant-id' });
+};
   return (
     <div className="App">
       { isAuthenticated ? (
@@ -29,16 +33,17 @@ function App() {
             <span>Logged in as: {user?.name}</span>
           </div>
           <div>
-            <label for="user_tenants_dropdown">my tenants: </label>
+            <label for="user_tenants_dropdown">user type: </label>
+           
             <select name="user_tenants_dropdown">{user.tenants.map((item) => {
               return (
-                <option>{item.tenantId} 
-      <link href="http://localhost:3000/"></link> 
+                <option>{item.roles}
                 </option>
               )
             })}
             </select>
           </div>
+          <div> <button onClick={handleSwitchTenant}>Select</button></div>
           <div>
             <button onClick={() => showTenant()}>
             What is the tenant I'm on right now?
@@ -54,7 +59,9 @@ function App() {
         </div>
       ) : (
           <div>
-            <button onClick={() => loginWithRedirect()}>Click me to login</button>
+            <button onClick={() => loginWithRedirect()}>go to login
+            </button>  
+            <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to logout</button>
           </div>
         )}
     </div>
