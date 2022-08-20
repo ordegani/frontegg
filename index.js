@@ -5,7 +5,7 @@ const sdk = require('api')('@frontegg/v1.0.3#5alnixil6dhd2zr');
 
 sdk.auth('26486244-4f1e-4198-a770-5a8129316feb');
 sdk.UsersControllerV1_setUserSuperuserMode({superUser: true}, {
-  userId: 'd83b613c-19e4-48f3-acf3-d1c96cf1de30'
+  userId: 'fce0e822-dbb9-4e8a-a664-58904da97ef0'
 })
   .then(res => console.log(res))
   .catch(err => console.error(err));

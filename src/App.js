@@ -61,6 +61,7 @@ function App() {
           <div>
             <button onClick={() => loginWithRedirect()}>go to login
             </button>
+            <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to logout old sessions</button>
           </div>
         )}
     </div>
