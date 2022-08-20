@@ -9,7 +9,6 @@ const contextOptions = {
   clientId: '1e2e91e0-8e49-4ae2-866f-35f0716a72b5'
 };
 
-
 ReactDOM.render(
   <FronteggProvider contextOptions={contextOptions} hostedLoginBox={true}>
     <App />

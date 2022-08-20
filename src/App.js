@@ -10,7 +10,6 @@ function App() {
   const handleClick = () => {
     AdminPortal.show();
   };
-
   const logout = () => {
     const baseUrl = ContextHolder.getContext().baseUrl;
     window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location}`;
@@ -22,6 +21,7 @@ function App() {
   const handleSwitchTenant = () => {
     switchTenant({ tenantId: 'new-tenant-id' });
   };
+
   return (
     <div className="App">
       { isAuthenticated ? (
@@ -61,7 +61,7 @@ function App() {
           <div>
             <button onClick={() => loginWithRedirect()}>go to login
             </button>
-            <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to logout old sessions</button>
+            <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to close old sessions</button>
           </div>
         )}
     </div>
