@@ -35,7 +35,7 @@ function App() {
           <div>
             <label for="user_types_dropdown">user type: </label>
 
-            <select name="user_types_dropdown">{user.tenants.map((item) => {
+            <select name="user_types_dropdown">{user.roles.map((item) => {
               return (
                 <option>{item.roles}
                 </option>
