@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      { isAuthenticated ? (
+      {isAuthenticated ? (
         <div>
           <div>
             <img src={user?.profilePictureUrl} alt={user?.name} />
@@ -58,12 +58,12 @@ function App() {
           <div><button onClick={handleClick}>Settings</button></div>
         </div>
       ) : (
-          <div>
-            <button onClick={() => loginWithRedirect()}>go to login
-            </button>
-            <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to close old sessions</button>
-          </div>
-        )}
+        <div>
+          <button onClick={() => loginWithRedirect()}>go to login
+          </button>
+          <button style={{ border: "red solid 2px" }} onClick={() => logout()}>Click to close old sessions</button>
+        </div>
+      )}
     </div>
   );
 }
